@@ -6,6 +6,7 @@ import ProductCard from "../components/product-card";
 import { useLatestProductsQuery } from "../redux/api/productAPI";
 import { addToCart } from "../redux/reducer/cartReducer";
 import { CartItem } from "../types/types";
+import Footer from "../components/footer";
 
 
 
@@ -26,7 +27,12 @@ const Home = () => {
 
   return (
     <div className="home">
+      <div>
       <section></section>
+      </div>
+
+<div>
+
 
       <h1>
         Latest Products
@@ -39,21 +45,32 @@ const Home = () => {
         {isLoading ? (
           <Skeleton width="80vw" />
         ) : (
-          data?.products.map((i) => (
-            <ProductCard
+          
+          data?.products.map((i) =>
+          
+             (
+              
+            <ProductCard 
               key={i._id}
               productId={i._id}
               name={i.name}
               price={i.price}
               stock={i.stock}
               handler={addToCartHandler}
-              photo={i.photo}
+              photo={i.photo }
             />
-          ))
+
+          )
+        )
         )}
       </main>
+      </div>
+      <Footer/>
     </div>
   );
 };
 
 export default Home;
+
+
+

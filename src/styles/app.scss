@@ -14,9 +14,14 @@
   box-sizing: border-box;
 }
 
-// body {
-//   user-select: none;
-// }
+body {
+  // user-select: none;
+
+  background: rgb(221, 217, 224);
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: auto; 
+  position: sticky;
+}
 
 a {
   text-decoration: none;
@@ -43,6 +48,7 @@ $color3: rgb(0, 104, 136);
 @import "shipping";
 @import "login";
 @import "search";
+@import "footer";
 @import "admin-styles/dashboard";
 @import "admin-styles/products";
 @import "admin-styles/chart";
@@ -67,9 +73,80 @@ $color3: rgb(0, 104, 136);
   text-align: center;
 }
 
+
+
+// .header {
+//   @include flex(row, flex-end, stretch, 1.2rem);
+//   padding: 1rem;
+//   .logo img {
+//     width: 100px; /* Adjust the width as needed */
+//     height: auto; /* Maintain aspect ratio */
+//     border-radius: 50%; /* Make the image circular (assuming it's a logo) */
+//   }
+//   a {
+//     color: $color2;
+//     letter-spacing: 2px;
+//     font-size: 1.2rem;
+
+//     &:hover {
+//       color: $color3;
+//     }
+//   }
+
+//   button {
+//     border: none;
+//     font-size: 1.2rem;
+//     cursor: pointer;
+//     background-color: transparent;
+//     &:hover {
+//       color: $color3;
+//     }
+//   }
+
+//   dialog {
+//     border: 1px solid #ccc;
+//     border-radius: 5px;
+//     padding: 10px;
+//     width: 100px;
+//     position: absolute;
+//     left: calc(100% - 100px);
+//     top: 8%;
+//     > div {
+//       @include flex(column, flex-start, center, 0.25rem);
+//     }
+//   }
+// }
+
 .header {
-  @include flex(row, flex-end, stretch, 1.2rem);
+  position: sticky;
+  display: flex;
+  justify-content: space-between; /* Align items evenly along the main axis */
+  align-items: center; /* Align items vertically in the center */
   padding: 1rem;
+  background-color: rgb(220, 107, 197);
+  border-top-right-radius: 10px;
+  z-index: 100;
+}
+
+.div1 {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.div2 {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Align items vertically in the center */
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin-left: 50px;
+  // margin-top: 50px;
+}
+
   a {
     color: $color2;
     letter-spacing: 2px;
@@ -102,7 +179,17 @@ $color3: rgb(0, 104, 136);
       @include flex(column, flex-start, center, 0.25rem);
     }
   }
-}
+
+
+
+
+
+
+
+
+
+
+
 .not-found {
   height: 80vh;
   @include flex(column);

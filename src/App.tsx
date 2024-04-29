@@ -1,7 +1,3 @@
-
-
-
-
 import { onAuthStateChanged } from "firebase/auth";
 import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
@@ -14,6 +10,7 @@ import { auth } from "./firebase";
 import { getUser } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducer/userReducer";
 import { RootState } from "./redux/store";
+// import Footer from "./components/footer";
 
 const Home = lazy(() => import("./pages/home"));
 const Search = lazy(() => import("./pages/search"));
@@ -24,6 +21,7 @@ const Orders = lazy(() => import("./pages/orders"));
 const OrderDetails = lazy(() => import("./pages/order-details"));
 const NotFound = lazy(() => import("./pages/not-found"));
 const Checkout = lazy(() => import("./pages/checkout"));
+const ProductDetails=lazy(()=>import("./pages/product-details"))
 
 // Admin Routes Importing
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
@@ -56,7 +54,8 @@ const App = () => {
       if (user) {
         const data = await getUser(user.uid);
         dispatch(userExist(data.user));
-      } else dispatch(userNotExist());
+      } 
+      else dispatch(userNotExist());
     });
   }, []);
 
@@ -71,6 +70,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:Id" element={<ProductDetails />} />
           {/* Not logged In Route */}
           <Route
             path="/login"
@@ -124,11 +124,17 @@ const App = () => {
           </Route>
 
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </Suspense>
+      {/* <Footer /> */}
       <Toaster position="bottom-center" />
     </Router>
+
   );
 };
 
 export default App;
+
+
+

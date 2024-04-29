@@ -7,6 +7,7 @@ import CartItemCard from "../components/cart-item";
 import { addToCart, calculatePrice, discountApplied, removeCartItem } from "../redux/reducer/cartReducer";
 import { RootState, server } from "../redux/store";
 import { CartItem } from "../types/types";
+import Footer from "../components/footer";
 
 
 
@@ -67,6 +68,9 @@ const Cart = () => {
   }, [cartItems]);
 
   return (
+    <div>
+
+  
     <div className="cart">
       <main>
         {cartItems.length > 0 ? (
@@ -114,6 +118,9 @@ const Cart = () => {
 
         {cartItems.length > 0 && <Link to="/shipping">Checkout</Link>}
       </aside>
+     
+    </div>
+    <Footer/>
     </div>
   );
 };

@@ -1,0 +1,60 @@
+
+footer {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(136, 213, 127);
+    color: rgb(32, 32, 39);
+    // padding: 6rem 0;
+    // padding: 10px;
+    padding-left: 13.33vmax;
+    display: grid;
+    grid-template-columns: 10fr 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    > div {
+      width: 100%;
+      border-left: 2px solid rgb(73, 73, 112);
+      border-right: 2px solid rgb(21, 21, 97);
+      > img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: contain;
+      }
+  
+      > h2 {
+        margin: 1rem;
+      }
+      > p {
+        font: 400 1.2rem  "Open Sans", sans-serif;
+      }
+    }
+  
+    > aside > article {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      svg {
+        font-size: 2rem;
+        color: rgb(81, 81, 186);
+        &:hover {
+          color: rgb(14, 14, 157);
+        }
+      }
+    }
+  
+    > a {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(234, 234, 245);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      svg {
+        font-size: 2rem;
+        color: rgb(28, 28, 132);
+      }
+    }
+  }

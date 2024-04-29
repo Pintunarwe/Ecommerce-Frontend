@@ -5,6 +5,7 @@ import { FaSearch, FaShoppingBag, FaSignInAlt, FaSignOutAlt, FaUser } from "reac
 import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { User } from "../types/types";
+import logo1 from "../assets/logo1.jpg";
 
 
 
@@ -29,6 +30,13 @@ const Header = ({ user }: PropsType) => {
 
   return (
     <nav className="header">
+      <div className="div1">
+
+    <Link onClick={() => setIsOpen(false)} to={"/"} className="logo"><img src={logo1} alt="" /></Link>
+      </div>
+
+<div className="div2">
+
       <Link onClick={() => setIsOpen(false)} to={"/"}>
         HOME
       </Link>
@@ -38,6 +46,10 @@ const Header = ({ user }: PropsType) => {
       <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag />
       </Link>
+
+
+
+
 
       {user?._id ? (
         <>
@@ -66,6 +78,7 @@ const Header = ({ user }: PropsType) => {
           <FaSignInAlt />
         </Link>
       )}
+      </div>
     </nav>
   );
 };

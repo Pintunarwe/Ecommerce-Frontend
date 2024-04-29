@@ -96,6 +96,9 @@ const Checkout = () => {
   if (!clientSecret) return <Navigate to={"/shipping"} />;
 
   return (
+    
+    
+   
     <Elements
       options={{
         clientSecret,
@@ -104,6 +107,8 @@ const Checkout = () => {
     >
       <CheckOutForm />
     </Elements>
+    
+    
   );
 };
 
